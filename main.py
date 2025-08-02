@@ -15,7 +15,9 @@ all_files = os.listdir(input_dir)
 image_files = [f for f in all_files if f.lower().endswith(image_extensions)]
 
 if not image_files:
-    exit("No image files found in this directory.")
+    exit(f"No image files found in {input_dir}")
+
+print(f"Found {len(image_files)} images.\n")
 
 output_dir = os.path.join(input_dir, 'Output')
 os.makedirs(output_dir, exist_ok=True)
@@ -30,12 +32,12 @@ def count_non_transparent_pixels(image):
     return sum(1 for pixel in alpha.getdata() if pixel > 10)  # slight threshold helps ignore soft transparency
 
 
-for image_file in image_files:
+for index, image_file in enumerate(image_files):
     input_path = os.path.join(input_dir, image_file)
     output_name = os.path.splitext(image_file)[0] + '.png'
     output_path = os.path.join(output_dir, output_name)
 
-    print(f"Processing: {image_file}")
+    print(f"Processing {index + 1}/{len(image_files)} - {image_file}")
 
     try:
         img = Image.open(input_path).convert("RGBA")
