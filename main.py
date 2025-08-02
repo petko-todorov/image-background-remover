@@ -60,3 +60,5 @@ for image_file in image_files:
 
     except Exception as e:
         print(f"Could not process {image_file}: {e}\n")
+
+os.startfile(output_dir)
