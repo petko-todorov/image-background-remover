@@ -1,6 +1,7 @@
 import os
 from rembg import remove, new_session
 from PIL import Image
+import webbrowser
 
 MODEL_1 = "isnet-general-use"
 MODEL_2 = "u2netp"
@@ -63,4 +64,6 @@ for index, image_file in enumerate(image_files):
     except Exception as e:
         print(f"Could not process {image_file}: {e}\n")
 
-os.startfile(output_dir)
+# os.startfile(output_dir)
+
+webbrowser.open(f'file://{output_dir}')
