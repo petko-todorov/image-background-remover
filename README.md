@@ -12,7 +12,7 @@ counts.
 * Automatically processes all images in a folder
 * Chooses the best result between two background removal models
 * Saves processed images to an `Output` subdirectory
-* Opens the output folder after processing
+* Opens the output folder after the process
 
 ---
 
